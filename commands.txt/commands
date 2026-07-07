@@ -1,0 +1,5 @@
+python3 -m http.server 8000
+
+git add .
+git commit -m "Initialize engineering documentation structure"
+git push
