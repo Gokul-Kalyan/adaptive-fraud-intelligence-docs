@@ -1,0 +1,373 @@
+<h1 id="project-overview">Project Overview</h1>
+<p><strong>Document ID:</strong> AFIP-001</p>
+<p><strong>Project:</strong> Adaptive Fraud Intelligence Platform</p>
+<p><strong>Document Version:</strong> 1.0</p>
+<p><strong>Status:</strong> Draft</p>
+<hr />
+<h1 id="purpose">1. Purpose</h1>
+<p>This document provides a high-level overview of the Adaptive Fraud
+Intelligence Platform, including its objectives, architecture,
+technology stack, major components, and end-to-end workflow. It serves
+as the entry point for understanding the overall system before exploring
+the detailed implementation presented in subsequent documents.</p>
+<hr />
+<h1 id="background">2. Background</h1>
+<p>Digital payment platforms and financial institutions process millions
+of transactions every day. Detecting fraudulent transactions accurately
+is essential because undetected fraud can result in significant
+financial losses, while excessive false positives negatively impact
+legitimate customers.</p>
+<p>Traditional rule-based fraud detection systems require frequent
+manual updates and often fail to adapt to evolving fraud patterns.
+Machine learning offers a data-driven alternative by learning complex
+transaction behaviors from historical data and estimating the likelihood
+of fraudulent activity.</p>
+<p>The Adaptive Fraud Intelligence Platform was developed to demonstrate
+how a production-oriented fraud detection system can be engineered by
+integrating machine learning, backend development, experiment tracking,
+data persistence, monitoring, containerization, and cloud deployment
+into a unified solution.</p>
+<hr />
+<h1 id="solution-overview">3. Solution Overview</h1>
+<p>The Adaptive Fraud Intelligence Platform is an end-to-end machine
+learning system designed to analyze financial transaction details and
+estimate the probability that a transaction is fraudulent.</p>
+<p>Rather than allowing the machine learning model to make operational
+decisions directly, the predicted fraud probability is processed by a
+rule-based Decision Engine that converts the prediction into one of
+three business actions:</p>
+<ul>
+<li><strong>APPROVE</strong> – Low fraud probability</li>
+<li><strong>VERIFY</strong> – Medium fraud probability requiring
+additional verification (for example, OTP verification)</li>
+<li><strong>BLOCK</strong> – High fraud probability</li>
+</ul>
+<p>This separation between prediction and decision logic improves
+maintainability and allows business rules to evolve independently of the
+machine learning model.</p>
+<hr />
+<h1 id="system-architecture">4. System Architecture</h1>
+<p>The platform consists of six major subsystems.</p>
+<h2 id="data-engineering-layer">4.1 Data Engineering Layer</h2>
+<p>Responsible for preparing raw transaction data for model
+training.</p>
+<p>Activities include:</p>
+<ul>
+<li>Data understanding</li>
+<li>Data preprocessing</li>
+<li>Feature engineering</li>
+<li>Dataset preparation</li>
+</ul>
+<hr />
+<h2 id="machine-learning-layer">4.2 Machine Learning Layer</h2>
+<p>Responsible for training and evaluating fraud detection models.</p>
+<p>Activities include:</p>
+<ul>
+<li>Model comparison</li>
+<li>Hyperparameter tuning</li>
+<li>Model evaluation</li>
+<li>Final CatBoost model selection</li>
+</ul>
+<p>Multiple algorithms including Random Forest, XGBoost, and CatBoost
+were evaluated during experimentation. CatBoost was selected as the
+production model based on its overall performance.</p>
+<hr />
+<h2 id="experiment-tracking-layer">4.3 Experiment Tracking Layer</h2>
+<p>MLflow is used to record:</p>
+<ul>
+<li>Model parameters</li>
+<li>Evaluation metrics</li>
+<li>Training artifacts</li>
+<li>Model versions</li>
+</ul>
+<p>This enables reproducibility and systematic comparison of machine
+learning experiments.</p>
+<hr />
+<h2 id="inference-layer">4.4 Inference Layer</h2>
+<p>The inference service is implemented using FastAPI.</p>
+<p>Incoming transaction records are:</p>
+<ol type="1">
+<li>Validated</li>
+<li>Converted into model features</li>
+<li>Passed to the trained CatBoost model</li>
+<li>Assigned a fraud probability</li>
+<li>Processed by the Decision Engine</li>
+</ol>
+<p>The API returns a JSON response similar to:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;fraud_probability&quot;</span><span class="fu">:</span> <span class="fl">0.94</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;decision&quot;</span><span class="fu">:</span> <span class="st">&quot;BLOCK&quot;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<hr />
+<h2 id="persistence-monitoring-layer">4.5 Persistence &amp; Monitoring
+Layer</h2>
+<p>Every prediction request is logged into PostgreSQL.</p>
+<p>The stored information is visualized through a Streamlit dashboard,
+which provides operational monitoring including:</p>
+<ul>
+<li>Total predictions</li>
+<li>Approved transactions</li>
+<li>Verified transactions</li>
+<li>Blocked transactions</li>
+<li>Average fraud probability</li>
+<li>Drift status</li>
+<li>Recent prediction history</li>
+</ul>
+<p>This creates an audit trail for monitoring system behavior.</p>
+<hr />
+<h2 id="deployment-layer">4.6 Deployment Layer</h2>
+<p>The inference service is containerized using Docker.</p>
+<p>The Docker image contains:</p>
+<ul>
+<li>FastAPI application</li>
+<li>Trained CatBoost model</li>
+<li>Source code</li>
+<li>Python dependencies</li>
+<li>Configuration files</li>
+</ul>
+<p>Containerization ensures consistent execution across different
+environments and prepares the application for cloud deployment.</p>
+<hr />
+<h1 id="high-level-architecture">5. High-Level Architecture</h1>
+<pre><code>                     Training Pipeline
+────────────────────────────────────────────────────────
+
+Fraud Dataset
+      │
+      ▼
+Data Preprocessing
+      │
+      ▼
+Feature Engineering
+      │
+      ▼
+Model Comparison
+(Random Forest / XGBoost / CatBoost)
+      │
+      ▼
+CatBoost Model
+      │
+      ▼
+MLflow Tracking
+      │
+      ▼
+Serialized Model
+
+────────────────────────────────────────────────────────
+
+                    Inference Pipeline
+
+Client
+      │
+      ▼
+FastAPI Service
+      │
+      ▼
+Feature Preparation
+      │
+      ▼
+CatBoost Model
+      │
+      ▼
+Fraud Probability
+      │
+      ▼
+Decision Engine
+(APPROVE / VERIFY / BLOCK)
+      │
+      ▼
+PostgreSQL
+      │
+      ▼
+Streamlit Dashboard
+
+────────────────────────────────────────────────────────
+
+Deployment
+
+Docker Container
+      │
+      ▼
+AWS Cloud (Planned)</code></pre>
+<hr />
+<h1 id="technology-stack">6. Technology Stack</h1>
+<table>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Programming Language</td>
+<td>Python</td>
+</tr>
+<tr class="even">
+<td>Machine Learning</td>
+<td>CatBoost</td>
+</tr>
+<tr class="odd">
+<td>API Framework</td>
+<td>FastAPI</td>
+</tr>
+<tr class="even">
+<td>Database</td>
+<td>PostgreSQL</td>
+</tr>
+<tr class="odd">
+<td>Dashboard</td>
+<td>Streamlit</td>
+</tr>
+<tr class="even">
+<td>Experiment Tracking</td>
+<td>MLflow</td>
+</tr>
+<tr class="odd">
+<td>Containerization</td>
+<td>Docker</td>
+</tr>
+<tr class="even">
+<td>Version Control</td>
+<td>Git &amp; GitHub</td>
+</tr>
+<tr class="odd">
+<td>Cloud Platform</td>
+<td>AWS (Planned)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="end-to-end-workflow">7. End-to-End Workflow</h1>
+<p>The complete workflow of the platform is summarized below.</p>
+<ol type="1">
+<li>Raw transaction dataset is collected.</li>
+<li>Data preprocessing and feature engineering are performed.</li>
+<li>Multiple machine learning models are trained and evaluated.</li>
+<li>MLflow records all experiments.</li>
+<li>CatBoost is selected as the production model.</li>
+<li>The trained model is packaged with the FastAPI application.</li>
+<li>Docker creates a portable deployment image.</li>
+<li>A client submits a transaction through the REST API.</li>
+<li>FastAPI prepares the features and performs inference.</li>
+<li>CatBoost predicts the fraud probability.</li>
+<li>The Decision Engine converts the probability into a business
+decision.</li>
+<li>Prediction results are stored in PostgreSQL.</li>
+<li>The Streamlit dashboard visualizes system activity.</li>
+<li>The complete platform is prepared for cloud deployment.</li>
+</ol>
+<hr />
+<h1 id="current-project-status">8. Current Project Status</h1>
+<table>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Data Preprocessing</td>
+<td>✅ Completed</td>
+</tr>
+<tr class="even">
+<td>Feature Engineering</td>
+<td>✅ Completed</td>
+</tr>
+<tr class="odd">
+<td>Model Comparison</td>
+<td>✅ Completed</td>
+</tr>
+<tr class="even">
+<td>CatBoost Training</td>
+<td>✅ Completed</td>
+</tr>
+<tr class="odd">
+<td>MLflow Integration</td>
+<td>✅ Completed</td>
+</tr>
+<tr class="even">
+<td>FastAPI API</td>
+<td>✅ Completed</td>
+</tr>
+<tr class="odd">
+<td>PostgreSQL Integration</td>
+<td>✅ Completed</td>
+</tr>
+<tr class="even">
+<td>Streamlit Dashboard</td>
+<td>✅ Completed</td>
+</tr>
+<tr class="odd">
+<td>Docker Containerization</td>
+<td>✅ Completed</td>
+</tr>
+<tr class="even">
+<td>AWS Deployment</td>
+<td>⏳ In Progress</td>
+</tr>
+<tr class="odd">
+<td>Explainable AI</td>
+<td>📌 Planned</td>
+</tr>
+<tr class="even">
+<td>Multi-Agent Extension</td>
+<td>📌 Planned</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="challenges">9. Challenges</h1>
+<p>The primary challenge was engineering an end-to-end machine learning
+platform rather than developing an isolated predictive model.</p>
+<p>Major engineering challenges included:</p>
+<ul>
+<li>Integrating multiple technologies into a unified architecture.</li>
+<li>Managing reproducible machine learning experiments.</li>
+<li>Designing a modular inference pipeline.</li>
+<li>Persisting prediction results for monitoring.</li>
+<li>Containerizing the application for deployment.</li>
+<li>Developing under limited local hardware resources.</li>
+</ul>
+<hr />
+<h1 id="lessons-learned">10. Lessons Learned</h1>
+<p>This project demonstrated that successful machine learning systems
+require considerably more than model development.</p>
+<p>Key learning outcomes include:</p>
+<ul>
+<li>End-to-end Machine Learning Engineering</li>
+<li>MLOps fundamentals</li>
+<li>REST API development</li>
+<li>Experiment tracking</li>
+<li>Database integration</li>
+<li>Containerized deployment</li>
+<li>Modular software architecture</li>
+<li>Production-oriented system design</li>
+</ul>
+<hr />
+<h1 id="future-improvements">11. Future Improvements</h1>
+<p>Planned enhancements include:</p>
+<ul>
+<li>AWS cloud deployment</li>
+<li>CI/CD pipeline</li>
+<li>Explainable AI using SHAP</li>
+<li>Automated model monitoring</li>
+<li>Advanced drift detection</li>
+<li>Intelligent fraud investigation workflows</li>
+<li>Multi-agent system integration</li>
+</ul>
+<hr />
+<h1 id="interview-questions">12. Interview Questions</h1>
+<ol type="1">
+<li>Why was CatBoost selected over Random Forest and XGBoost?</li>
+<li>Why is the Decision Engine separated from the machine learning
+model?</li>
+<li>Why are prediction results stored in PostgreSQL?</li>
+<li>Why was FastAPI chosen instead of Flask?</li>
+<li>What role does MLflow play in the project?</li>
+<li>Why was Docker used for deployment?</li>
+<li>How would you scale this architecture for millions of transactions
+per day?</li>
+</ol>
