@@ -1,0 +1,2075 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>PROJECT_SCOPE</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#project-scope" id="toc-project-scope">Project
+Scope</a></li>
+<li><a href="#purpose" id="toc-purpose">1. Purpose</a></li>
+<li><a href="#project-overview" id="toc-project-overview">2. Project
+Overview</a></li>
+<li><a href="#documentation-objectives"
+id="toc-documentation-objectives">3. Documentation Objectives</a></li>
+<li><a href="#intended-audience" id="toc-intended-audience">4. Intended
+Audience</a></li>
+<li><a href="#project-scope-1" id="toc-project-scope-1">5. Project
+Scope</a>
+<ul>
+<li><a href="#data-engineering" id="toc-data-engineering">Data
+Engineering</a></li>
+<li><a href="#machine-learning" id="toc-machine-learning">Machine
+Learning</a></li>
+<li><a href="#backend-development" id="toc-backend-development">Backend
+Development</a></li>
+<li><a href="#database" id="toc-database">Database</a></li>
+<li><a href="#deployment" id="toc-deployment">Deployment</a></li>
+<li><a href="#monitoring" id="toc-monitoring">Monitoring</a></li>
+<li><a href="#engineering" id="toc-engineering">Engineering</a></li>
+</ul></li>
+<li><a href="#out-of-scope" id="toc-out-of-scope">6. Out of
+Scope</a></li>
+<li><a href="#expected-deliverables" id="toc-expected-deliverables">7.
+Expected Deliverables</a></li>
+<li><a href="#success-criteria" id="toc-success-criteria">8. Success
+Criteria</a></li>
+<li><a href="#version-history" id="toc-version-history">9. Version
+History</a></li>
+<li><a href="#documentation-guide"
+id="toc-documentation-guide">Documentation Guide</a></li>
+<li><a href="#purpose-1" id="toc-purpose-1">1. Purpose</a></li>
+<li><a href="#documentation-principles"
+id="toc-documentation-principles">2. Documentation Principles</a></li>
+<li><a href="#repository-structure" id="toc-repository-structure">3.
+Repository Structure</a></li>
+<li><a href="#writing-style" id="toc-writing-style">4. Writing
+Style</a></li>
+<li><a href="#standard-document-template"
+id="toc-standard-document-template">5. Standard Document
+Template</a></li>
+<li><a href="#engineering-decision-records-edrs"
+id="toc-engineering-decision-records-edrs">6. Engineering Decision
+Records (EDRs)</a></li>
+<li><a href="#diagrams" id="toc-diagrams">7. Diagrams</a></li>
+<li><a href="#screenshots" id="toc-screenshots">8. Screenshots</a></li>
+<li><a href="#versioning" id="toc-versioning">9. Versioning</a></li>
+<li><a href="#review-checklist" id="toc-review-checklist">10. Review
+Checklist</a></li>
+<li><a href="#long-term-goal" id="toc-long-term-goal">11. Long-Term
+Goal</a></li>
+<li><a href="#project-charter" id="toc-project-charter">Project
+Charter</a></li>
+<li><a href="#executive-summary" id="toc-executive-summary">1. Executive
+Summary</a></li>
+<li><a href="#motivation" id="toc-motivation">2. Motivation</a></li>
+<li><a href="#business-problem" id="toc-business-problem">3. Business
+Problem</a></li>
+<li><a href="#project-objectives" id="toc-project-objectives">4. Project
+Objectives</a></li>
+<li><a href="#success-criteria-1" id="toc-success-criteria-1">5. Success
+Criteria</a></li>
+<li><a href="#engineering-challenges" id="toc-engineering-challenges">6.
+Engineering Challenges</a></li>
+<li><a href="#key-learning-outcomes" id="toc-key-learning-outcomes">7.
+Key Learning Outcomes</a></li>
+<li><a href="#future-vision" id="toc-future-vision">8. Future
+Vision</a></li>
+<li><a href="#project-status" id="toc-project-status">9. Project
+Status</a></li>
+<li><a href="#project-overview-1" id="toc-project-overview-1">Project
+Overview</a></li>
+<li><a href="#purpose-2" id="toc-purpose-2">1. Purpose</a></li>
+<li><a href="#background" id="toc-background">2. Background</a></li>
+<li><a href="#solution-overview" id="toc-solution-overview">3. Solution
+Overview</a></li>
+<li><a href="#system-architecture" id="toc-system-architecture">4.
+System Architecture</a>
+<ul>
+<li><a href="#data-engineering-layer"
+id="toc-data-engineering-layer">4.1 Data Engineering Layer</a></li>
+<li><a href="#machine-learning-layer"
+id="toc-machine-learning-layer">4.2 Machine Learning Layer</a></li>
+<li><a href="#experiment-tracking-layer"
+id="toc-experiment-tracking-layer">4.3 Experiment Tracking
+Layer</a></li>
+<li><a href="#inference-layer" id="toc-inference-layer">4.4 Inference
+Layer</a></li>
+<li><a href="#persistence-monitoring-layer"
+id="toc-persistence-monitoring-layer">4.5 Persistence &amp; Monitoring
+Layer</a></li>
+<li><a href="#deployment-layer" id="toc-deployment-layer">4.6 Deployment
+Layer</a></li>
+</ul></li>
+<li><a href="#high-level-architecture"
+id="toc-high-level-architecture">5. High-Level Architecture</a></li>
+<li><a href="#technology-stack" id="toc-technology-stack">6. Technology
+Stack</a></li>
+<li><a href="#end-to-end-workflow" id="toc-end-to-end-workflow">7.
+End-to-End Workflow</a></li>
+<li><a href="#current-project-status" id="toc-current-project-status">8.
+Current Project Status</a></li>
+<li><a href="#challenges" id="toc-challenges">9. Challenges</a></li>
+<li><a href="#lessons-learned" id="toc-lessons-learned">10. Lessons
+Learned</a></li>
+<li><a href="#future-improvements" id="toc-future-improvements">11.
+Future Improvements</a></li>
+<li><a href="#interview-questions" id="toc-interview-questions">12.
+Interview Questions</a></li>
+<li><a href="#dataset" id="toc-dataset">Dataset</a></li>
+<li><a href="#purpose-3" id="toc-purpose-3">1. Purpose</a></li>
+<li><a href="#background-1" id="toc-background-1">2. Background</a></li>
+<li><a href="#dataset-description" id="toc-dataset-description">3.
+Dataset Description</a></li>
+<li><a href="#feature-description" id="toc-feature-description">4.
+Feature Description</a></li>
+<li><a href="#dataset-characteristics"
+id="toc-dataset-characteristics">5. Dataset Characteristics</a>
+<ul>
+<li><a href="#class-distribution" id="toc-class-distribution">Class
+Distribution</a></li>
+<li><a href="#missing-values" id="toc-missing-values">Missing
+Values</a></li>
+<li><a href="#duplicate-records" id="toc-duplicate-records">Duplicate
+Records</a></li>
+</ul></li>
+<li><a href="#feature-selection" id="toc-feature-selection">6. Feature
+Selection</a></li>
+<li><a href="#data-encoding" id="toc-data-encoding">7. Data
+Encoding</a></li>
+<li><a href="#class-imbalance-handling"
+id="toc-class-imbalance-handling">8. Class Imbalance Handling</a></li>
+<li><a href="#challenges-1" id="toc-challenges-1">9. Challenges</a></li>
+<li><a href="#lessons-learned-1" id="toc-lessons-learned-1">10. Lessons
+Learned</a></li>
+<li><a href="#future-improvements-1" id="toc-future-improvements-1">11.
+Future Improvements</a></li>
+<li><a href="#interview-questions-1" id="toc-interview-questions-1">12.
+Interview Questions</a></li>
+<li><a href="#references" id="toc-references">References</a></li>
+<li><a href="#exploratory-data-analysis-eda"
+id="toc-exploratory-data-analysis-eda">Exploratory Data Analysis
+(EDA)</a></li>
+<li><a href="#purpose-4" id="toc-purpose-4">1. Purpose</a></li>
+<li><a href="#background-2" id="toc-background-2">2. Background</a></li>
+<li><a href="#exploratory-data-analysis"
+id="toc-exploratory-data-analysis">3. Exploratory Data Analysis</a>
+<ul>
+<li><a href="#dataset-overview" id="toc-dataset-overview">3.1 Dataset
+Overview</a>
+<ul>
+<li><a href="#engineering-observation"
+id="toc-engineering-observation">Engineering Observation</a></li>
+</ul></li>
+<li><a href="#missing-values-and-duplicate-records"
+id="toc-missing-values-and-duplicate-records">3.2 Missing Values and
+Duplicate Records</a>
+<ul>
+<li><a href="#observations" id="toc-observations">Observations</a></li>
+<li><a href="#engineering-decision"
+id="toc-engineering-decision">Engineering Decision</a></li>
+</ul></li>
+<li><a href="#class-distribution-1" id="toc-class-distribution-1">3.3
+Class Distribution</a>
+<ul>
+<li><a href="#observation" id="toc-observation">Observation</a></li>
+<li><a href="#engineering-decision-1"
+id="toc-engineering-decision-1">Engineering Decision</a></li>
+</ul></li>
+<li><a href="#transaction-type-analysis"
+id="toc-transaction-type-analysis">3.4 Transaction Type Analysis</a>
+<ul>
+<li><a href="#observations-1"
+id="toc-observations-1">Observations</a></li>
+<li><a href="#engineering-decision-2"
+id="toc-engineering-decision-2">Engineering Decision</a></li>
+</ul></li>
+<li><a href="#fraud-distribution-by-transaction-type"
+id="toc-fraud-distribution-by-transaction-type">3.5 Fraud Distribution
+by Transaction Type</a>
+<ul>
+<li><a href="#observations-2"
+id="toc-observations-2">Observations</a></li>
+<li><a href="#engineering-decision-3"
+id="toc-engineering-decision-3">Engineering Decision</a></li>
+</ul></li>
+<li><a href="#numerical-feature-distribution"
+id="toc-numerical-feature-distribution">3.6 Numerical Feature
+Distribution</a>
+<ul>
+<li><a href="#observations-3"
+id="toc-observations-3">Observations</a></li>
+<li><a href="#engineering-decision-4"
+id="toc-engineering-decision-4">Engineering Decision</a></li>
+</ul></li>
+<li><a href="#transaction-amount-analysis"
+id="toc-transaction-amount-analysis">3.7 Transaction Amount Analysis</a>
+<ul>
+<li><a href="#observations-4"
+id="toc-observations-4">Observations</a></li>
+<li><a href="#engineering-decision-5"
+id="toc-engineering-decision-5">Engineering Decision</a></li>
+</ul></li>
+<li><a href="#balance-feature-analysis"
+id="toc-balance-feature-analysis">3.8 Balance Feature Analysis</a>
+<ul>
+<li><a href="#observations-5"
+id="toc-observations-5">Observations</a></li>
+<li><a href="#engineering-decision-6"
+id="toc-engineering-decision-6">Engineering Decision</a></li>
+</ul></li>
+<li><a href="#correlation-analysis" id="toc-correlation-analysis">3.9
+Correlation Analysis</a>
+<ul>
+<li><a href="#observations-6"
+id="toc-observations-6">Observations</a></li>
+<li><a href="#engineering-decision-7"
+id="toc-engineering-decision-7">Engineering Decision</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#key-engineering-insights"
+id="toc-key-engineering-insights">4. Key Engineering Insights</a>
+<ul>
+<li><a href="#insight-1" id="toc-insight-1">Insight 1</a></li>
+<li><a href="#insight-2" id="toc-insight-2">Insight 2</a></li>
+<li><a href="#insight-3" id="toc-insight-3">Insight 3</a></li>
+<li><a href="#insight-4" id="toc-insight-4">Insight 4</a></li>
+<li><a href="#insight-5" id="toc-insight-5">Insight 5</a></li>
+</ul></li>
+<li><a href="#challenges-2" id="toc-challenges-2">5. Challenges</a></li>
+<li><a href="#lessons-learned-2" id="toc-lessons-learned-2">6. Lessons
+Learned</a></li>
+<li><a href="#future-improvements-2" id="toc-future-improvements-2">7.
+Future Improvements</a></li>
+<li><a href="#interview-questions-2" id="toc-interview-questions-2">8.
+Interview Questions</a></li>
+<li><a href="#references-1" id="toc-references-1">References</a></li>
+<li><a href="#feature-engineering" id="toc-feature-engineering">Feature
+Engineering</a></li>
+<li><a href="#purpose-5" id="toc-purpose-5">1. Purpose</a></li>
+<li><a href="#background-3" id="toc-background-3">2. Background</a></li>
+<li><a href="#feature-engineering-pipeline"
+id="toc-feature-engineering-pipeline">3. Feature Engineering
+Pipeline</a></li>
+<li><a href="#data-cleaning" id="toc-data-cleaning">4. Data
+Cleaning</a></li>
+<li><a href="#transaction-type-encoding"
+id="toc-transaction-type-encoding">5. Transaction Type Encoding</a></li>
+<li><a href="#engineered-features" id="toc-engineered-features">6.
+Engineered Features</a>
+<ul>
+<li><a href="#sender-balance-difference"
+id="toc-sender-balance-difference">6.1 Sender Balance
+Difference</a></li>
+<li><a href="#receiver-balance-difference"
+id="toc-receiver-balance-difference">6.2 Receiver Balance
+Difference</a></li>
+<li><a href="#amount-to-balance-ratio"
+id="toc-amount-to-balance-ratio">6.3 Amount-to-Balance Ratio</a></li>
+<li><a href="#full-balance-transfer-flag"
+id="toc-full-balance-transfer-flag">6.4 Full Balance Transfer
+Flag</a></li>
+</ul></li>
+<li><a href="#engineering-decisions" id="toc-engineering-decisions">7.
+Engineering Decisions</a>
+<ul>
+<li><a href="#no-feature-scaling" id="toc-no-feature-scaling">No Feature
+Scaling</a></li>
+<li><a href="#no-outlier-removal" id="toc-no-outlier-removal">No Outlier
+Removal</a></li>
+<li><a href="#stratified-train-test-split"
+id="toc-stratified-train-test-split">Stratified Train-Test
+Split</a></li>
+<li><a href="#consistent-preprocessing"
+id="toc-consistent-preprocessing">Consistent Preprocessing</a></li>
+</ul></li>
+<li><a href="#challenges-3" id="toc-challenges-3">8. Challenges</a></li>
+<li><a href="#lessons-learned-3" id="toc-lessons-learned-3">9. Lessons
+Learned</a></li>
+<li><a href="#future-improvements-3" id="toc-future-improvements-3">10.
+Future Improvements</a></li>
+<li><a href="#interview-questions-3" id="toc-interview-questions-3">11.
+Interview Questions</a></li>
+<li><a href="#references-2" id="toc-references-2">References</a></li>
+</ul>
+</nav>
+<h1 id="project-scope">Project Scope</h1>
+<p><strong>Project Name:</strong> Adaptive Fraud Intelligence
+Platform</p>
+<p><strong>Version:</strong> 0.1</p>
+<p><strong>Status:</strong> In Progress</p>
+<p><strong>Author:</strong> <Your Name></p>
+<hr />
+<h1 id="purpose">1. Purpose</h1>
+<p>This document defines the scope, objectives, boundaries, and
+deliverables of the Adaptive Fraud Intelligence Platform documentation
+project. It serves as the foundation for all subsequent technical
+documentation and provides a common understanding of what the project
+intends to achieve.</p>
+<hr />
+<h1 id="project-overview">2. Project Overview</h1>
+<p>The Adaptive Fraud Intelligence Platform is an end-to-end machine
+learning system designed to detect fraudulent financial transactions
+using supervised machine learning techniques. Beyond model development,
+the platform demonstrates the complete machine learning lifecycle
+including data preprocessing, feature engineering, model training,
+experiment tracking, API development, monitoring, containerization, and
+cloud deployment.</p>
+<p>The project emphasizes production-oriented machine learning practices
+rather than model development alone.</p>
+<hr />
+<h1 id="documentation-objectives">3. Documentation Objectives</h1>
+<p>This documentation aims to:</p>
+<ul>
+<li>Explain the complete system architecture.</li>
+<li>Document all engineering decisions.</li>
+<li>Describe the end-to-end machine learning pipeline.</li>
+<li>Record implementation details and challenges.</li>
+<li>Capture lessons learned throughout development.</li>
+<li>Provide a reference for future enhancements.</li>
+<li>Serve as a technical portfolio for interviews and professional
+presentation.</li>
+</ul>
+<hr />
+<h1 id="intended-audience">4. Intended Audience</h1>
+<p>This documentation is written for:</p>
+<ul>
+<li>Machine Learning Engineers</li>
+<li>MLOps Engineers</li>
+<li>Software Engineers</li>
+<li>Recruiters</li>
+<li>Technical Interviewers</li>
+<li>Students interested in production Machine Learning systems</li>
+<li>Future contributors</li>
+</ul>
+<hr />
+<h1 id="project-scope-1">5. Project Scope</h1>
+<p>The documentation includes the following components:</p>
+<h2 id="data-engineering">Data Engineering</h2>
+<ul>
+<li>Dataset understanding</li>
+<li>Data preprocessing</li>
+<li>Exploratory Data Analysis</li>
+<li>Feature engineering</li>
+</ul>
+<h2 id="machine-learning">Machine Learning</h2>
+<ul>
+<li>Model selection</li>
+<li>Model training</li>
+<li>Hyperparameter tuning</li>
+<li>Performance evaluation</li>
+<li>Experiment tracking using MLflow</li>
+</ul>
+<h2 id="backend-development">Backend Development</h2>
+<ul>
+<li>FastAPI inference service</li>
+<li>REST API design</li>
+<li>Input validation</li>
+<li>Error handling</li>
+</ul>
+<h2 id="database">Database</h2>
+<ul>
+<li>PostgreSQL integration</li>
+<li>Prediction logging</li>
+<li>Audit trail</li>
+</ul>
+<h2 id="deployment">Deployment</h2>
+<ul>
+<li>Docker containerization</li>
+<li>Cloud deployment</li>
+<li>Deployment architecture</li>
+</ul>
+<h2 id="monitoring">Monitoring</h2>
+<ul>
+<li>Prediction monitoring</li>
+<li>Dashboard development</li>
+<li>Model performance tracking</li>
+</ul>
+<h2 id="engineering">Engineering</h2>
+<ul>
+<li>Architecture decisions</li>
+<li>Challenges encountered</li>
+<li>Lessons learned</li>
+<li>Future roadmap</li>
+</ul>
+<hr />
+<h1 id="out-of-scope">6. Out of Scope</h1>
+<p>The following topics are outside the scope of this project:</p>
+<ul>
+<li>Deep Learning based fraud detection</li>
+<li>Distributed model training</li>
+<li>Kubernetes orchestration</li>
+<li>Real-time streaming architectures</li>
+<li>Multi-cloud deployment</li>
+<li>Enterprise security compliance</li>
+</ul>
+<p>These may be considered in future versions.</p>
+<hr />
+<h1 id="expected-deliverables">7. Expected Deliverables</h1>
+<p>This documentation will produce:</p>
+<ul>
+<li>Engineering Design Document</li>
+<li>System Architecture Documentation</li>
+<li>Deployment Guide</li>
+<li>Engineering Decision Records</li>
+<li>Interview Preparation Notes</li>
+<li>Portfolio Documentation</li>
+</ul>
+<hr />
+<h1 id="success-criteria">8. Success Criteria</h1>
+<p>The documentation will be considered successful if:</p>
+<ul>
+<li>Another engineer can understand the complete system.</li>
+<li>The project can be reproduced from the documentation.</li>
+<li>All major engineering decisions are justified.</li>
+<li>The documentation accurately reflects the implemented system.</li>
+<li>The documentation supports technical interviews and portfolio
+presentation.</li>
+</ul>
+<hr />
+<h1 id="version-history">9. Version History</h1>
+<table>
+<thead>
+<tr class="header">
+<th>Version</th>
+<th>Date</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.1</td>
+<td>YYYY-MM-DD</td>
+<td>Initial project scope</td>
+</tr>
+</tbody>
+</table>
+<h1 id="documentation-guide">Documentation Guide</h1>
+<p><strong>Project:</strong> Adaptive Fraud Intelligence Platform</p>
+<p><strong>Version:</strong> 1.0</p>
+<hr />
+<h1 id="purpose-1">1. Purpose</h1>
+<p>This guide defines the standards, conventions, and structure used
+throughout the engineering documentation repository. Following a
+consistent documentation style improves readability, maintainability,
+and reproducibility.</p>
+<hr />
+<h1 id="documentation-principles">2. Documentation Principles</h1>
+<p>The documentation follows the following principles:</p>
+<ul>
+<li>Accuracy over completeness.</li>
+<li>Explain engineering decisions, not only implementation.</li>
+<li>Document both successes and challenges.</li>
+<li>Prefer diagrams over lengthy descriptions where appropriate.</li>
+<li>Keep implementation details synchronized with the source code.</li>
+<li>Every technical decision should be justified.</li>
+</ul>
+<hr />
+<h1 id="repository-structure">3. Repository Structure</h1>
+<pre><code>docs/
+00_Foundation/
+10_Data/
+20_Machine_Learning/
+30_Backend/
+40_Deployment/
+50_Monitoring/
+60_Project_Management/
+70_Future/</code></pre>
+<p>Supporting folders:</p>
+<pre><code>diagrams/
+figures/
+screenshots/
+references/
+templates/
+decisions/</code></pre>
+<hr />
+<h1 id="writing-style">4. Writing Style</h1>
+<p>Documentation should be:</p>
+<ul>
+<li>Clear</li>
+<li>Technical</li>
+<li>Concise</li>
+<li>Objective</li>
+</ul>
+<p>Avoid:</p>
+<ul>
+<li>Marketing language</li>
+<li>Unsupported claims</li>
+<li>Buzzwords without explanation</li>
+<li>Personal opinions unless documented as lessons learned</li>
+</ul>
+<hr />
+<h1 id="standard-document-template">5. Standard Document Template</h1>
+<p>Every technical document should include the following sections where
+applicable:</p>
+<ul>
+<li>Purpose</li>
+<li>Background</li>
+<li>Design Decisions</li>
+<li>Architecture</li>
+<li>Implementation</li>
+<li>Challenges</li>
+<li>Lessons Learned</li>
+<li>Interview Questions</li>
+<li>References</li>
+</ul>
+<hr />
+<h1 id="engineering-decision-records-edrs">6. Engineering Decision
+Records (EDRs)</h1>
+<p>Major technical decisions should be documented separately.</p>
+<p>Examples include:</p>
+<ul>
+<li>Why CatBoost?</li>
+<li>Why FastAPI?</li>
+<li>Why PostgreSQL?</li>
+<li>Why Docker?</li>
+<li>Why MLflow?</li>
+<li>Why GitHub Codespaces?</li>
+</ul>
+<p>Each EDR should explain:</p>
+<ul>
+<li>Context</li>
+<li>Decision</li>
+<li>Alternatives Considered</li>
+<li>Consequences</li>
+</ul>
+<hr />
+<h1 id="diagrams">7. Diagrams</h1>
+<p>Architecture diagrams should be created using draw.io or Mermaid.</p>
+<p>Every major component should have at least one supporting
+diagram.</p>
+<hr />
+<h1 id="screenshots">8. Screenshots</h1>
+<p>Screenshots should only be included when they add technical
+value.</p>
+<p>Examples:</p>
+<ul>
+<li>MLflow experiments</li>
+<li>API documentation</li>
+<li>Dashboard</li>
+<li>Docker containers</li>
+<li>Cloud deployment</li>
+</ul>
+<p>Avoid screenshots of code.</p>
+<hr />
+<h1 id="versioning">9. Versioning</h1>
+<p>Documentation should evolve together with the project.</p>
+<p>Every major feature addition should include:</p>
+<ul>
+<li>Documentation update</li>
+<li>Design decision (if applicable)</li>
+<li>Architecture update</li>
+<li>Lessons learned</li>
+</ul>
+<hr />
+<h1 id="review-checklist">10. Review Checklist</h1>
+<p>Before committing any document, verify:</p>
+<ul>
+<li>Technical accuracy</li>
+<li>Grammar</li>
+<li>Consistent terminology</li>
+<li>Updated diagrams</li>
+<li>References added where necessary</li>
+</ul>
+<hr />
+<h1 id="long-term-goal">11. Long-Term Goal</h1>
+<p>The documentation should eventually support:</p>
+<ul>
+<li>Engineering Design Document</li>
+<li>Portfolio</li>
+<li>GitHub Documentation</li>
+<li>Technical Blog Articles</li>
+<li>Conference-style Paper</li>
+<li>Interview Preparation</li>
+</ul>
+<h1 id="project-charter">Project Charter</h1>
+<p><strong>Project Name:</strong> Adaptive Fraud Intelligence
+Platform</p>
+<p><strong>Version:</strong> 1.0</p>
+<p><strong>Status:</strong> In Progress</p>
+<hr />
+<h1 id="executive-summary">1. Executive Summary</h1>
+<p>The Adaptive Fraud Intelligence Platform is an end-to-end machine
+learning engineering project developed to demonstrate the complete
+lifecycle of a production-oriented fraud detection system. The project
+extends beyond model development by incorporating data preprocessing,
+feature engineering, experiment tracking, API development, database
+integration, containerization, monitoring, and cloud deployment.</p>
+<p>The primary objective is to build a reproducible and scalable fraud
+detection platform while following modern machine learning engineering
+and MLOps practices.</p>
+<hr />
+<h1 id="motivation">2. Motivation</h1>
+<p>Many machine learning projects conclude with model training inside a
+Jupyter Notebook. While such projects demonstrate predictive capability,
+they often do not address the engineering challenges involved in
+deploying and maintaining machine learning systems.</p>
+<p>This project was initiated to understand and implement the complete
+machine learning lifecycle, with an emphasis on software engineering
+principles, deployment practices, reproducibility, and production
+readiness.</p>
+<hr />
+<h1 id="business-problem">3. Business Problem</h1>
+<p>Financial institutions process a large volume of digital transactions
+every day. Fraudulent transactions can result in significant financial
+losses, while missed fraud cases may be considerably more expensive than
+incorrectly flagging legitimate transactions.</p>
+<p>The objective is to build an adaptive fraud detection system capable
+of identifying suspicious transactions accurately while providing a
+deployable and maintainable engineering solution.</p>
+<hr />
+<h1 id="project-objectives">4. Project Objectives</h1>
+<p>The project aims to:</p>
+<ul>
+<li>Build an end-to-end machine learning pipeline.</li>
+<li>Design a modular and production-oriented system architecture.</li>
+<li>Develop a REST API for real-time inference.</li>
+<li>Track machine learning experiments using MLflow.</li>
+<li>Log prediction data for auditing and monitoring.</li>
+<li>Deploy the system using Docker.</li>
+<li>Prepare the platform for cloud deployment.</li>
+<li>Document engineering decisions throughout development.</li>
+</ul>
+<hr />
+<h1 id="success-criteria-1">5. Success Criteria</h1>
+<p>The project will be considered successful when:</p>
+<ul>
+<li>The fraud detection model achieves an F1-score greater than
+95%.</li>
+<li>The FastAPI inference service performs reliable real-time
+predictions.</li>
+<li>Machine learning experiments are reproducible through MLflow.</li>
+<li>Prediction data is stored for future analysis.</li>
+<li>The application is successfully containerized.</li>
+<li>The platform is deployed to the cloud.</li>
+</ul>
+<hr />
+<h1 id="engineering-challenges">6. Engineering Challenges</h1>
+<p>Although no single algorithmic challenge dominated the project,
+several engineering challenges were encountered during development,
+including:</p>
+<ul>
+<li>Designing an end-to-end machine learning workflow.</li>
+<li>Integrating multiple technologies into a unified system.</li>
+<li>Managing development with limited local hardware resources.</li>
+<li>Containerizing the application despite hardware limitations.</li>
+<li>Maintaining reproducibility across different development
+environments.</li>
+</ul>
+<p>These challenges reinforced the importance of modular software design
+and reproducible engineering practices.</p>
+<hr />
+<h1 id="key-learning-outcomes">7. Key Learning Outcomes</h1>
+<p>The most significant outcome of this project was understanding the
+complete machine learning lifecycle.</p>
+<p>Beyond model development, the project provided practical experience
+in:</p>
+<ul>
+<li>Machine Learning Engineering</li>
+<li>MLOps</li>
+<li>REST API development</li>
+<li>Experiment tracking</li>
+<li>Database integration</li>
+<li>Docker containerization</li>
+<li>Cloud deployment preparation</li>
+<li>Software architecture</li>
+</ul>
+<hr />
+<h1 id="future-vision">8. Future Vision</h1>
+<p>The long-term vision of the Adaptive Fraud Intelligence Platform
+includes:</p>
+<ul>
+<li>Explainable AI integration</li>
+<li>Cloud-native deployment architecture</li>
+<li>Automated model monitoring</li>
+<li>Intelligent fraud investigation workflows</li>
+<li>Multi-agent AI support</li>
+<li>Continuous model improvement and retraining</li>
+</ul>
+<hr />
+<h1 id="project-status">9. Project Status</h1>
+<p>Current Progress:</p>
+<ul>
+<li>Data preprocessing ✔</li>
+<li>Feature engineering ✔</li>
+<li>Model development ✔</li>
+<li>Experiment tracking ✔</li>
+<li>FastAPI API ✔</li>
+<li>PostgreSQL integration ✔</li>
+<li>Streamlit dashboard ✔</li>
+<li>Docker containerization ✔</li>
+<li>Cloud deployment ⏳</li>
+<li>Explainable AI ⏳</li>
+<li>Intelligent investigation system ⏳</li>
+</ul>
+<hr />
+<h1 id="project-overview-1">Project Overview</h1>
+<p><strong>Document ID:</strong> AFIP-001</p>
+<p><strong>Project:</strong> Adaptive Fraud Intelligence Platform</p>
+<p><strong>Document Version:</strong> 1.0</p>
+<p><strong>Status:</strong> Draft</p>
+<hr />
+<h1 id="purpose-2">1. Purpose</h1>
+<p>This document provides a high-level overview of the Adaptive Fraud
+Intelligence Platform, including its objectives, architecture,
+technology stack, major components, and end-to-end workflow. It serves
+as the entry point for understanding the overall system before exploring
+the detailed implementation presented in subsequent documents.</p>
+<hr />
+<h1 id="background">2. Background</h1>
+<p>Digital payment platforms and financial institutions process millions
+of transactions every day. Detecting fraudulent transactions accurately
+is essential because undetected fraud can result in significant
+financial losses, while excessive false positives negatively impact
+legitimate customers.</p>
+<p>Traditional rule-based fraud detection systems require frequent
+manual updates and often fail to adapt to evolving fraud patterns.
+Machine learning offers a data-driven alternative by learning complex
+transaction behaviors from historical data and estimating the likelihood
+of fraudulent activity.</p>
+<p>The Adaptive Fraud Intelligence Platform was developed to demonstrate
+how a production-oriented fraud detection system can be engineered by
+integrating machine learning, backend development, experiment tracking,
+data persistence, monitoring, containerization, and cloud deployment
+into a unified solution.</p>
+<hr />
+<h1 id="solution-overview">3. Solution Overview</h1>
+<p>The Adaptive Fraud Intelligence Platform is an end-to-end machine
+learning system designed to analyze financial transaction details and
+estimate the probability that a transaction is fraudulent.</p>
+<p>Rather than allowing the machine learning model to make operational
+decisions directly, the predicted fraud probability is processed by a
+rule-based Decision Engine that converts the prediction into one of
+three business actions:</p>
+<ul>
+<li><strong>APPROVE</strong> – Low fraud probability</li>
+<li><strong>VERIFY</strong> – Medium fraud probability requiring
+additional verification (for example, OTP verification)</li>
+<li><strong>BLOCK</strong> – High fraud probability</li>
+</ul>
+<p>This separation between prediction and decision logic improves
+maintainability and allows business rules to evolve independently of the
+machine learning model.</p>
+<hr />
+<h1 id="system-architecture">4. System Architecture</h1>
+<p>The platform consists of six major subsystems.</p>
+<h2 id="data-engineering-layer">4.1 Data Engineering Layer</h2>
+<p>Responsible for preparing raw transaction data for model
+training.</p>
+<p>Activities include:</p>
+<ul>
+<li>Data understanding</li>
+<li>Data preprocessing</li>
+<li>Feature engineering</li>
+<li>Dataset preparation</li>
+</ul>
+<hr />
+<h2 id="machine-learning-layer">4.2 Machine Learning Layer</h2>
+<p>Responsible for training and evaluating fraud detection models.</p>
+<p>Activities include:</p>
+<ul>
+<li>Model comparison</li>
+<li>Hyperparameter tuning</li>
+<li>Model evaluation</li>
+<li>Final CatBoost model selection</li>
+</ul>
+<p>Multiple algorithms including Random Forest, XGBoost, and CatBoost
+were evaluated during experimentation. CatBoost was selected as the
+production model based on its overall performance.</p>
+<hr />
+<h2 id="experiment-tracking-layer">4.3 Experiment Tracking Layer</h2>
+<p>MLflow is used to record:</p>
+<ul>
+<li>Model parameters</li>
+<li>Evaluation metrics</li>
+<li>Training artifacts</li>
+<li>Model versions</li>
+</ul>
+<p>This enables reproducibility and systematic comparison of machine
+learning experiments.</p>
+<hr />
+<h2 id="inference-layer">4.4 Inference Layer</h2>
+<p>The inference service is implemented using FastAPI.</p>
+<p>Incoming transaction records are:</p>
+<ol type="1">
+<li>Validated</li>
+<li>Converted into model features</li>
+<li>Passed to the trained CatBoost model</li>
+<li>Assigned a fraud probability</li>
+<li>Processed by the Decision Engine</li>
+</ol>
+<p>The API returns a JSON response similar to:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;fraud_probability&quot;</span><span class="fu">:</span> <span class="fl">0.94</span><span class="fu">,</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;decision&quot;</span><span class="fu">:</span> <span class="st">&quot;BLOCK&quot;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<hr />
+<h2 id="persistence-monitoring-layer">4.5 Persistence &amp; Monitoring
+Layer</h2>
+<p>Every prediction request is logged into PostgreSQL.</p>
+<p>The stored information is visualized through a Streamlit dashboard,
+which provides operational monitoring including:</p>
+<ul>
+<li>Total predictions</li>
+<li>Approved transactions</li>
+<li>Verified transactions</li>
+<li>Blocked transactions</li>
+<li>Average fraud probability</li>
+<li>Drift status</li>
+<li>Recent prediction history</li>
+</ul>
+<p>This creates an audit trail for monitoring system behavior.</p>
+<hr />
+<h2 id="deployment-layer">4.6 Deployment Layer</h2>
+<p>The inference service is containerized using Docker.</p>
+<p>The Docker image contains:</p>
+<ul>
+<li>FastAPI application</li>
+<li>Trained CatBoost model</li>
+<li>Source code</li>
+<li>Python dependencies</li>
+<li>Configuration files</li>
+</ul>
+<p>Containerization ensures consistent execution across different
+environments and prepares the application for cloud deployment.</p>
+<hr />
+<h1 id="high-level-architecture">5. High-Level Architecture</h1>
+<pre><code>                     Training Pipeline
+────────────────────────────────────────────────────────
+
+Fraud Dataset
+      │
+      ▼
+Data Preprocessing
+      │
+      ▼
+Feature Engineering
+      │
+      ▼
+Model Comparison
+(Random Forest / XGBoost / CatBoost)
+      │
+      ▼
+CatBoost Model
+      │
+      ▼
+MLflow Tracking
+      │
+      ▼
+Serialized Model
+
+────────────────────────────────────────────────────────
+
+                    Inference Pipeline
+
+Client
+      │
+      ▼
+FastAPI Service
+      │
+      ▼
+Feature Preparation
+      │
+      ▼
+CatBoost Model
+      │
+      ▼
+Fraud Probability
+      │
+      ▼
+Decision Engine
+(APPROVE / VERIFY / BLOCK)
+      │
+      ▼
+PostgreSQL
+      │
+      ▼
+Streamlit Dashboard
+
+────────────────────────────────────────────────────────
+
+Deployment
+
+Docker Container
+      │
+      ▼
+AWS Cloud (Planned)</code></pre>
+<hr />
+<h1 id="technology-stack">6. Technology Stack</h1>
+<table>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Programming Language</td>
+<td>Python</td>
+</tr>
+<tr class="even">
+<td>Machine Learning</td>
+<td>CatBoost</td>
+</tr>
+<tr class="odd">
+<td>API Framework</td>
+<td>FastAPI</td>
+</tr>
+<tr class="even">
+<td>Database</td>
+<td>PostgreSQL</td>
+</tr>
+<tr class="odd">
+<td>Dashboard</td>
+<td>Streamlit</td>
+</tr>
+<tr class="even">
+<td>Experiment Tracking</td>
+<td>MLflow</td>
+</tr>
+<tr class="odd">
+<td>Containerization</td>
+<td>Docker</td>
+</tr>
+<tr class="even">
+<td>Version Control</td>
+<td>Git &amp; GitHub</td>
+</tr>
+<tr class="odd">
+<td>Cloud Platform</td>
+<td>AWS (Planned)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="end-to-end-workflow">7. End-to-End Workflow</h1>
+<p>The complete workflow of the platform is summarized below.</p>
+<ol type="1">
+<li>Raw transaction dataset is collected.</li>
+<li>Data preprocessing and feature engineering are performed.</li>
+<li>Multiple machine learning models are trained and evaluated.</li>
+<li>MLflow records all experiments.</li>
+<li>CatBoost is selected as the production model.</li>
+<li>The trained model is packaged with the FastAPI application.</li>
+<li>Docker creates a portable deployment image.</li>
+<li>A client submits a transaction through the REST API.</li>
+<li>FastAPI prepares the features and performs inference.</li>
+<li>CatBoost predicts the fraud probability.</li>
+<li>The Decision Engine converts the probability into a business
+decision.</li>
+<li>Prediction results are stored in PostgreSQL.</li>
+<li>The Streamlit dashboard visualizes system activity.</li>
+<li>The complete platform is prepared for cloud deployment.</li>
+</ol>
+<hr />
+<h1 id="current-project-status">8. Current Project Status</h1>
+<table>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Data Preprocessing</td>
+<td>✅ Completed</td>
+</tr>
+<tr class="even">
+<td>Feature Engineering</td>
+<td>✅ Completed</td>
+</tr>
+<tr class="odd">
+<td>Model Comparison</td>
+<td>✅ Completed</td>
+</tr>
+<tr class="even">
+<td>CatBoost Training</td>
+<td>✅ Completed</td>
+</tr>
+<tr class="odd">
+<td>MLflow Integration</td>
+<td>✅ Completed</td>
+</tr>
+<tr class="even">
+<td>FastAPI API</td>
+<td>✅ Completed</td>
+</tr>
+<tr class="odd">
+<td>PostgreSQL Integration</td>
+<td>✅ Completed</td>
+</tr>
+<tr class="even">
+<td>Streamlit Dashboard</td>
+<td>✅ Completed</td>
+</tr>
+<tr class="odd">
+<td>Docker Containerization</td>
+<td>✅ Completed</td>
+</tr>
+<tr class="even">
+<td>AWS Deployment</td>
+<td>⏳ In Progress</td>
+</tr>
+<tr class="odd">
+<td>Explainable AI</td>
+<td>📌 Planned</td>
+</tr>
+<tr class="even">
+<td>Multi-Agent Extension</td>
+<td>📌 Planned</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="challenges">9. Challenges</h1>
+<p>The primary challenge was engineering an end-to-end machine learning
+platform rather than developing an isolated predictive model.</p>
+<p>Major engineering challenges included:</p>
+<ul>
+<li>Integrating multiple technologies into a unified architecture.</li>
+<li>Managing reproducible machine learning experiments.</li>
+<li>Designing a modular inference pipeline.</li>
+<li>Persisting prediction results for monitoring.</li>
+<li>Containerizing the application for deployment.</li>
+<li>Developing under limited local hardware resources.</li>
+</ul>
+<hr />
+<h1 id="lessons-learned">10. Lessons Learned</h1>
+<p>This project demonstrated that successful machine learning systems
+require considerably more than model development.</p>
+<p>Key learning outcomes include:</p>
+<ul>
+<li>End-to-end Machine Learning Engineering</li>
+<li>MLOps fundamentals</li>
+<li>REST API development</li>
+<li>Experiment tracking</li>
+<li>Database integration</li>
+<li>Containerized deployment</li>
+<li>Modular software architecture</li>
+<li>Production-oriented system design</li>
+</ul>
+<hr />
+<h1 id="future-improvements">11. Future Improvements</h1>
+<p>Planned enhancements include:</p>
+<ul>
+<li>AWS cloud deployment</li>
+<li>CI/CD pipeline</li>
+<li>Explainable AI using SHAP</li>
+<li>Automated model monitoring</li>
+<li>Advanced drift detection</li>
+<li>Intelligent fraud investigation workflows</li>
+<li>Multi-agent system integration</li>
+</ul>
+<hr />
+<h1 id="interview-questions">12. Interview Questions</h1>
+<ol type="1">
+<li>Why was CatBoost selected over Random Forest and XGBoost?</li>
+<li>Why is the Decision Engine separated from the machine learning
+model?</li>
+<li>Why are prediction results stored in PostgreSQL?</li>
+<li>Why was FastAPI chosen instead of Flask?</li>
+<li>What role does MLflow play in the project?</li>
+<li>Why was Docker used for deployment?</li>
+<li>How would you scale this architecture for millions of transactions
+per day?</li>
+</ol>
+<h1 id="dataset">Dataset</h1>
+<p><strong>Document ID:</strong> AFIP-002</p>
+<p><strong>Project:</strong> Adaptive Fraud Intelligence Platform</p>
+<p><strong>Document Version:</strong> 1.0</p>
+<p><strong>Status:</strong> Draft</p>
+<hr />
+<h1 id="purpose-3">1. Purpose</h1>
+<p>This document describes the dataset used to develop the Adaptive
+Fraud Intelligence Platform. It provides an overview of the dataset, its
+features, data quality, preprocessing considerations, and challenges
+encountered before model development.</p>
+<hr />
+<h1 id="background-1">2. Background</h1>
+<p>Fraud detection systems rely on historical transaction records to
+learn patterns that distinguish legitimate transactions from fraudulent
+ones. The quality and characteristics of the dataset directly influence
+the performance and generalization capability of the machine learning
+model.</p>
+<p>The dataset used in this project represents financial transaction
+records and is widely used for benchmarking fraud detection models.</p>
+<hr />
+<h1 id="dataset-description">3. Dataset Description</h1>
+<table>
+<thead>
+<tr class="header">
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Dataset Name</td>
+<td>Fraud Detection Dataset</td>
+</tr>
+<tr class="even">
+<td>Source</td>
+<td>Kaggle</td>
+</tr>
+<tr class="odd">
+<td>Domain</td>
+<td>Financial Transactions</td>
+</tr>
+<tr class="even">
+<td>Total Records</td>
+<td>~6.36 Million</td>
+</tr>
+<tr class="odd">
+<td>Total Features</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td>Target Variable</td>
+<td>isFraud</td>
+</tr>
+<tr class="odd">
+<td>Learning Type</td>
+<td>Supervised Binary Classification</td>
+</tr>
+</tbody>
+</table>
+<p>The dataset contains transaction-level information including
+transaction type, transaction amount, sender balance, receiver balance,
+and fraud labels.</p>
+<hr />
+<h1 id="feature-description">4. Feature Description</h1>
+<table>
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>step</td>
+<td>Time step representing when the transaction occurred.</td>
+</tr>
+<tr class="even">
+<td>type</td>
+<td>Type of transaction (PAYMENT, TRANSFER, CASH_OUT, DEBIT,
+CASH_IN).</td>
+</tr>
+<tr class="odd">
+<td>amount</td>
+<td>Transaction amount.</td>
+</tr>
+<tr class="even">
+<td>nameOrig</td>
+<td>Unique identifier of the sender account.</td>
+</tr>
+<tr class="odd">
+<td>oldbalanceOrg</td>
+<td>Sender account balance before the transaction.</td>
+</tr>
+<tr class="even">
+<td>newbalanceOrig</td>
+<td>Sender account balance after the transaction.</td>
+</tr>
+<tr class="odd">
+<td>nameDest</td>
+<td>Unique identifier of the destination account.</td>
+</tr>
+<tr class="even">
+<td>oldbalanceDest</td>
+<td>Receiver balance before the transaction.</td>
+</tr>
+<tr class="odd">
+<td>newbalanceDest</td>
+<td>Receiver balance after the transaction.</td>
+</tr>
+<tr class="even">
+<td>isFraud</td>
+<td>Target variable indicating whether the transaction is
+fraudulent.</td>
+</tr>
+<tr class="odd">
+<td>isFlaggedFraud</td>
+<td>Rule-based fraud flag generated by the original dataset.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="dataset-characteristics">5. Dataset Characteristics</h1>
+<h2 id="class-distribution">Class Distribution</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Class</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">Non-Fraud</td>
+<td style="text-align: right;">6,354,407</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Fraud</td>
+<td style="text-align: right;">8,213</td>
+</tr>
+</tbody>
+</table>
+<p>The dataset is highly imbalanced, with fraudulent transactions
+representing only a very small fraction of the total records. This
+reflects a realistic fraud detection scenario encountered in financial
+systems.</p>
+<hr />
+<h2 id="missing-values">Missing Values</h2>
+<p>The dataset contains almost no missing values. During inspection, a
+negligible number of null entries (one record in several columns) was
+identified and handled during preprocessing.</p>
+<hr />
+<h2 id="duplicate-records">Duplicate Records</h2>
+<p>A duplicate check confirmed that no fully duplicated rows were
+present in the dataset.</p>
+<hr />
+<h1 id="feature-selection">6. Feature Selection</h1>
+<p>Not all dataset features were used during model training.</p>
+<p>The following columns were excluded:</p>
+<table>
+<colgroup>
+<col style="width: 55%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>nameOrig</td>
+<td>Account identifier. Excluded because identifiers do not generalize
+to unseen customers and may lead to model overfitting.</td>
+</tr>
+<tr class="even">
+<td>nameDest</td>
+<td>Destination account identifier. Excluded for the same reason as
+<code>nameOrig</code>; behavioral features are preferred over
+identifiers in production systems.</td>
+</tr>
+<tr class="odd">
+<td>isFlaggedFraud</td>
+<td>Rule-based indicator provided by the dataset. Excluded to prevent
+information leakage and allow the model to learn fraud patterns
+independently.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="data-encoding">7. Data Encoding</h1>
+<p>The categorical transaction type was converted into numerical values
+before model training using manual mapping.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Transaction Type</th>
+<th style="text-align: right;">Encoded Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>PAYMENT</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>TRANSFER</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td>CASH_OUT</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td>DEBIT</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td>CASH_IN</td>
+<td style="text-align: right;">4</td>
+</tr>
+</tbody>
+</table>
+<p>This encoding ensured compatibility with the machine learning
+pipeline while preserving the distinction between transaction
+categories.</p>
+<hr />
+<h1 id="class-imbalance-handling">8. Class Imbalance Handling</h1>
+<p>The dataset exhibits severe class imbalance.</p>
+<p>Instead of performing oversampling or undersampling, the CatBoost
+classifier was configured using:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>auto_class_weights<span class="op">=</span><span class="st">&quot;Balanced&quot;</span></span></code></pre></div>
+<p>This allows CatBoost to automatically assign higher importance to
+minority class samples during training while preserving the original
+data distribution.</p>
+<hr />
+<h1 id="challenges-1">9. Challenges</h1>
+<p>Several data-related challenges were identified during dataset
+preparation:</p>
+<ul>
+<li>Extreme class imbalance.</li>
+<li>Presence of identifier columns that are unsuitable for production
+model training.</li>
+<li>Requirement for categorical feature encoding.</li>
+<li>Large dataset size requiring efficient preprocessing.</li>
+</ul>
+<hr />
+<h1 id="lessons-learned-1">10. Lessons Learned</h1>
+<p>The dataset demonstrated that effective fraud detection depends not
+only on model selection but also on thoughtful data preparation.</p>
+<p>Important lessons include:</p>
+<ul>
+<li>Real-world fraud datasets are naturally imbalanced.</li>
+<li>Identifier columns should be evaluated carefully before
+inclusion.</li>
+<li>Feature engineering has a significant impact on model
+performance.</li>
+<li>Data understanding is the foundation of the machine learning
+pipeline.</li>
+</ul>
+<hr />
+<h1 id="future-improvements-1">11. Future Improvements</h1>
+<p>Future versions of the platform may incorporate additional engineered
+behavioral features derived from transaction history, such as:</p>
+<ul>
+<li>Transaction frequency</li>
+<li>Customer velocity</li>
+<li>Historical fraud rate</li>
+<li>Destination account statistics</li>
+<li>Time-based behavioral features</li>
+</ul>
+<p>These features are expected to improve model robustness while
+maintaining generalization capability.</p>
+<hr />
+<h1 id="interview-questions-1">12. Interview Questions</h1>
+<ol type="1">
+<li>Why were <code>nameOrig</code> and <code>nameDest</code> removed
+from the model?</li>
+<li>Why was <code>isFlaggedFraud</code> excluded?</li>
+<li>How did you handle severe class imbalance?</li>
+<li>Why did you manually encode the transaction type?</li>
+<li>What additional features would you engineer for a production fraud
+detection system?</li>
+</ol>
+<hr />
+<h1 id="references">References</h1>
+<ol type="1">
+<li>Kaggle – Fraud Detection Dataset<br />
+https://www.kaggle.com/datasets/amanalisiddiqui/fraud-detection-dataset</li>
+</ol>
+<h1 id="exploratory-data-analysis-eda">Exploratory Data Analysis
+(EDA)</h1>
+<p><strong>Document ID:</strong> AFIP-003</p>
+<p><strong>Project:</strong> Adaptive Fraud Intelligence Platform</p>
+<p><strong>Document Version:</strong> 1.0</p>
+<p><strong>Status:</strong> Draft</p>
+<hr />
+<h1 id="purpose-4">1. Purpose</h1>
+<p>This document presents the Exploratory Data Analysis (EDA) performed
+on the fraud detection dataset. The objective of the analysis is to
+understand the structure, quality, and characteristics of the dataset
+before feature engineering and model development.</p>
+<p>The findings presented in this document guided several engineering
+decisions, including feature selection, handling class imbalance,
+categorical encoding, and machine learning model selection.</p>
+<hr />
+<h1 id="background-2">2. Background</h1>
+<p>Exploratory Data Analysis is a critical step in the machine learning
+lifecycle. Before building predictive models, it is essential to
+understand the underlying data distribution, identify quality issues,
+detect anomalies, and discover relationships between variables.</p>
+<p>The analysis performed in this project focuses on understanding
+transaction behaviour rather than generating business reports.</p>
+<hr />
+<h1 id="exploratory-data-analysis">3. Exploratory Data Analysis</h1>
+<h2 id="dataset-overview">3.1 Dataset Overview</h2>
+<p>The dataset contains approximately <strong>6.36 million financial
+transaction records</strong> with <strong>11 features</strong>,
+including one target variable (<code>isFraud</code>).</p>
+<p>Each record represents a single financial transaction containing
+information such as transaction type, transaction amount, sender
+balance, receiver balance, and fraud status.</p>
+<h3 id="engineering-observation">Engineering Observation</h3>
+<ul>
+<li>The dataset size is sufficiently large for training robust machine
+learning models.</li>
+<li>The available features represent transaction behaviour rather than
+customer demographics.</li>
+</ul>
+<hr />
+<h2 id="missing-values-and-duplicate-records">3.2 Missing Values and
+Duplicate Records</h2>
+<p>The dataset was inspected for missing values and duplicate
+records.</p>
+<h3 id="observations">Observations</h3>
+<ul>
+<li>Only negligible missing values (single entries across several
+columns) were identified.</li>
+<li>No fully duplicated records were found.</li>
+</ul>
+<h3 id="engineering-decision">Engineering Decision</h3>
+<p>The overall data quality was considered high, allowing preprocessing
+to focus primarily on feature engineering rather than extensive data
+cleaning.</p>
+<hr />
+<h2 id="class-distribution-1">3.3 Class Distribution</h2>
+<p>The distribution of the target variable (<code>isFraud</code>) was
+analyzed to understand the balance between fraudulent and legitimate
+transactions.</p>
+<h3 id="observation">Observation</h3>
+<p>The dataset is <strong>extremely imbalanced</strong>.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Class</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">Non-Fraud</td>
+<td style="text-align: right;">6,354,407</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Fraud</td>
+<td style="text-align: right;">8,213</td>
+</tr>
+</tbody>
+</table>
+<p>Fraudulent transactions represent only a very small percentage of the
+total dataset.</p>
+<h3 id="engineering-decision-1">Engineering Decision</h3>
+<p>Instead of oversampling or undersampling, the CatBoost classifier was
+configured with:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>auto_class_weights<span class="op">=</span><span class="st">&quot;Balanced&quot;</span></span></code></pre></div>
+<p>This approach preserves the original transaction distribution while
+increasing the importance of minority-class samples during model
+training.</p>
+<hr />
+<h2 id="transaction-type-analysis">3.4 Transaction Type Analysis</h2>
+<p>The distribution of transaction categories was analyzed.</p>
+<p>The dataset contains the following transaction types:</p>
+<ul>
+<li>PAYMENT</li>
+<li>TRANSFER</li>
+<li>CASH_OUT</li>
+<li>DEBIT</li>
+<li>CASH_IN</li>
+</ul>
+<h3 id="observations-1">Observations</h3>
+<ul>
+<li>PAYMENT transactions occur most frequently.</li>
+<li>Transaction categories are not uniformly distributed.</li>
+<li>Certain transaction types contribute disproportionately to
+fraudulent activity.</li>
+</ul>
+<h3 id="engineering-decision-2">Engineering Decision</h3>
+<p>Transaction type was retained as a predictive feature and encoded
+numerically before model training.</p>
+<hr />
+<h2 id="fraud-distribution-by-transaction-type">3.5 Fraud Distribution
+by Transaction Type</h2>
+<p>Fraud occurrences were analyzed across transaction categories.</p>
+<h3 id="observations-2">Observations</h3>
+<p>Fraudulent transactions are concentrated within specific transaction
+types rather than being evenly distributed across all categories.</p>
+<p>This indicates that transaction type contains valuable predictive
+information.</p>
+<h3 id="engineering-decision-3">Engineering Decision</h3>
+<p>The transaction type feature was retained because it provides
+important contextual information that helps distinguish fraudulent
+behaviour.</p>
+<hr />
+<h2 id="numerical-feature-distribution">3.6 Numerical Feature
+Distribution</h2>
+<p>The distributions of numerical variables were analyzed.</p>
+<p>Features analyzed include:</p>
+<ul>
+<li>step</li>
+<li>amount</li>
+<li>oldbalanceOrg</li>
+<li>newbalanceOrig</li>
+<li>oldbalanceDest</li>
+<li>newbalanceDest</li>
+</ul>
+<h3 id="observations-3">Observations</h3>
+<ul>
+<li>Most numerical features exhibit strong right-skewed
+distributions.</li>
+<li>A large proportion of transactions involve relatively small monetary
+values.</li>
+<li>Balance-related features contain many observations near zero.</li>
+<li>Several variables contain extreme outliers.</li>
+</ul>
+<h3 id="engineering-decision-4">Engineering Decision</h3>
+<p>Tree-based ensemble methods were preferred because they naturally
+handle skewed numerical distributions without requiring feature
+normalization.</p>
+<hr />
+<h2 id="transaction-amount-analysis">3.7 Transaction Amount
+Analysis</h2>
+<p>The transaction amount feature was analyzed using both its original
+scale and a logarithmic transformation.</p>
+<h3 id="observations-4">Observations</h3>
+<ul>
+<li>Transaction amounts are highly skewed.</li>
+<li>A small number of transactions involve exceptionally large monetary
+values.</li>
+<li>The logarithmic transformation reveals the underlying distribution
+more clearly.</li>
+</ul>
+<h3 id="engineering-decision-5">Engineering Decision</h3>
+<p>Although CatBoost does not require feature scaling, understanding the
+amount distribution was useful for interpreting transaction behaviour
+and identifying outliers.</p>
+<hr />
+<h2 id="balance-feature-analysis">3.8 Balance Feature Analysis</h2>
+<p>Sender and receiver balance features were examined.</p>
+<h3 id="observations-5">Observations</h3>
+<ul>
+<li>Balance features contain highly skewed distributions.</li>
+<li>Many accounts have zero or very small balances.</li>
+<li>Account balances before and after transactions exhibit expected
+financial relationships.</li>
+</ul>
+<h3 id="engineering-decision-6">Engineering Decision</h3>
+<p>All balance-related variables were retained because they capture
+valuable financial behaviour associated with fraudulent
+transactions.</p>
+<hr />
+<h2 id="correlation-analysis">3.9 Correlation Analysis</h2>
+<p>Correlation analysis was performed on numerical variables.</p>
+<h3 id="observations-6">Observations</h3>
+<ul>
+<li>Strong correlations exist between balance-related variables.</li>
+<li>No evidence suggested removing any features based solely on
+correlation.</li>
+<li>Multiple features contribute complementary information to fraud
+prediction.</li>
+</ul>
+<h3 id="engineering-decision-7">Engineering Decision</h3>
+<p>All numerical balance features were retained for model
+development.</p>
+<hr />
+<h1 id="key-engineering-insights">4. Key Engineering Insights</h1>
+<p>The exploratory analysis provided several important insights that
+influenced the overall system design.</p>
+<h2 id="insight-1">Insight 1</h2>
+<p>Fraud detection is a highly imbalanced classification problem.</p>
+<p><strong>Impact</strong></p>
+<p>Class imbalance handling became a critical consideration during model
+development.</p>
+<hr />
+<h2 id="insight-2">Insight 2</h2>
+<p>Transaction type contains significant predictive information.</p>
+<p><strong>Impact</strong></p>
+<p>Transaction type was encoded and retained as a model feature.</p>
+<hr />
+<h2 id="insight-3">Insight 3</h2>
+<p>Identifier columns (<code>nameOrig</code> and <code>nameDest</code>)
+do not generalize well to unseen accounts.</p>
+<p><strong>Impact</strong></p>
+<p>These columns were excluded from model training and replaced by
+behavioural transaction features.</p>
+<hr />
+<h2 id="insight-4">Insight 4</h2>
+<p>Balance-related variables provide useful behavioural information.</p>
+<p><strong>Impact</strong></p>
+<p>These features were retained without removal.</p>
+<hr />
+<h2 id="insight-5">Insight 5</h2>
+<p>Fraud behaviour cannot be explained by a single feature.</p>
+<p><strong>Impact</strong></p>
+<p>A tree-based ensemble model (CatBoost) was selected because it can
+capture complex, nonlinear interactions among multiple variables.</p>
+<hr />
+<h1 id="challenges-2">5. Challenges</h1>
+<p>The following challenges were identified during exploratory
+analysis:</p>
+<ul>
+<li>Extreme class imbalance.</li>
+<li>Highly skewed numerical distributions.</li>
+<li>Presence of identifier columns unsuitable for prediction.</li>
+<li>Large dataset size requiring efficient visualization
+techniques.</li>
+</ul>
+<hr />
+<h1 id="lessons-learned-2">6. Lessons Learned</h1>
+<p>The EDA demonstrated that understanding the data is equally important
+as selecting the machine learning algorithm.</p>
+<p>Key lessons include:</p>
+<ul>
+<li>High-quality EDA improves feature engineering decisions.</li>
+<li>Real-world financial datasets rarely follow normal
+distributions.</li>
+<li>Fraud detection relies on behavioural patterns rather than isolated
+variables.</li>
+<li>Engineering decisions should be supported by exploratory evidence
+rather than assumptions.</li>
+</ul>
+<hr />
+<h1 id="future-improvements-2">7. Future Improvements</h1>
+<p>Future exploratory analyses may include:</p>
+<ul>
+<li>Time-series analysis of fraud trends.</li>
+<li>Customer transaction velocity analysis.</li>
+<li>Network analysis of sender and receiver accounts.</li>
+<li>Feature importance analysis using SHAP.</li>
+<li>Statistical hypothesis testing for feature significance.</li>
+</ul>
+<hr />
+<h1 id="interview-questions-2">8. Interview Questions</h1>
+<ol type="1">
+<li>Why is Exploratory Data Analysis important before model
+development?</li>
+<li>What challenges arise from highly imbalanced datasets?</li>
+<li>Why were identifier columns excluded from the model?</li>
+<li>Why was CatBoost selected after the exploratory analysis?</li>
+<li>Which features appeared most informative during EDA?</li>
+</ol>
+<hr />
+<h1 id="references-1">References</h1>
+<ol type="1">
+<li><p>Fraud Detection Dataset – Kaggle</p>
+<p>https://www.kaggle.com/datasets/amanalisiddiqui/fraud-detection-dataset</p></li>
+</ol>
+<h1 id="feature-engineering">Feature Engineering</h1>
+<p><strong>Document ID:</strong> AFIP-004</p>
+<p><strong>Project:</strong> Adaptive Fraud Intelligence Platform</p>
+<p><strong>Document Version:</strong> 1.0</p>
+<p><strong>Status:</strong> Draft</p>
+<hr />
+<h1 id="purpose-5">1. Purpose</h1>
+<p>This document describes the feature engineering pipeline developed
+for the Adaptive Fraud Intelligence Platform. It explains how raw
+transaction data is transformed into meaningful machine learning
+features that improve fraud detection performance while maintaining
+consistency between model training and production inference.</p>
+<hr />
+<h1 id="background-3">2. Background</h1>
+<p>Raw transaction data rarely contains features that are immediately
+suitable for machine learning models. Feature engineering transforms raw
+attributes into representations that better capture underlying
+behavioural patterns associated with fraudulent activity.</p>
+<p>The feature engineering pipeline developed in this project emphasizes
+behavioural characteristics rather than customer identifiers, improving
+the model’s ability to generalize to previously unseen transactions.</p>
+<hr />
+<h1 id="feature-engineering-pipeline">3. Feature Engineering
+Pipeline</h1>
+<p>The preprocessing pipeline consists of five sequential stages:</p>
+<ol type="1">
+<li>Data Cleaning</li>
+<li>Categorical Encoding</li>
+<li>Behavioural Feature Engineering</li>
+<li>Ratio Feature Engineering</li>
+<li>Rule-Based Feature Engineering</li>
+</ol>
+<p>The same pipeline is reused during both model training and API
+inference to ensure consistent feature generation.</p>
+<hr />
+<h1 id="data-cleaning">4. Data Cleaning</h1>
+<p>The following columns were removed before model training.</p>
+<table>
+<colgroup>
+<col style="width: 55%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>nameOrig</td>
+<td>Sender account identifier. Excluded because identifiers do not
+generalize to unseen customers.</td>
+</tr>
+<tr class="even">
+<td>nameDest</td>
+<td>Destination account identifier. Excluded to avoid learning
+account-specific patterns.</td>
+</tr>
+<tr class="odd">
+<td>isFlaggedFraud</td>
+<td>Rule-based fraud flag removed to prevent information leakage.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="transaction-type-encoding">5. Transaction Type Encoding</h1>
+<p>Transaction categories were converted into numerical values using
+manual mapping.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Transaction Type</th>
+<th style="text-align: right;">Encoded Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>PAYMENT</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>TRANSFER</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td>CASH_OUT</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td>DEBIT</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td>CASH_IN</td>
+<td style="text-align: right;">4</td>
+</tr>
+</tbody>
+</table>
+<p>Manual encoding was selected because the transaction categories are
+fixed, well-defined, and known in advance, providing a simple and
+efficient representation for the preprocessing pipeline.</p>
+<hr />
+<h1 id="engineered-features">6. Engineered Features</h1>
+<p>Three new behavioural features were created.</p>
+<h2 id="sender-balance-difference">6.1 Sender Balance Difference</h2>
+<pre><code>balance_diff_org =
+oldbalanceOrg - newbalanceOrig</code></pre>
+<p>Measures the amount deducted from the sender’s account.</p>
+<hr />
+<h2 id="receiver-balance-difference">6.2 Receiver Balance
+Difference</h2>
+<pre><code>balance_diff_dest =
+newbalanceDest - oldbalanceDest</code></pre>
+<p>Measures the amount credited to the destination account.</p>
+<hr />
+<h2 id="amount-to-balance-ratio">6.3 Amount-to-Balance Ratio</h2>
+<pre><code>amount_balance_ratio =
+amount /
+(oldbalanceOrg + 1)</code></pre>
+<p>Represents the transaction amount relative to the sender’s available
+balance.</p>
+<p>Adding 1 prevents division by zero.</p>
+<hr />
+<h2 id="full-balance-transfer-flag">6.4 Full Balance Transfer Flag</h2>
+<pre><code>full_balance_transfer =
+amount &gt;= 95% of oldbalanceOrg</code></pre>
+<p>Creates a binary feature indicating whether nearly the entire sender
+balance was transferred.</p>
+<p>This feature captures suspicious transaction behaviour commonly
+associated with fraudulent activity.</p>
+<hr />
+<h1 id="engineering-decisions">7. Engineering Decisions</h1>
+<h2 id="no-feature-scaling">No Feature Scaling</h2>
+<p>Feature scaling was intentionally omitted because CatBoost is a
+tree-based ensemble algorithm that does not require normalized input
+features.</p>
+<hr />
+<h2 id="no-outlier-removal">No Outlier Removal</h2>
+<p>Large transaction amounts are characteristic of financial fraud
+rather than data errors.</p>
+<p>Removing these observations could reduce the model’s ability to
+detect fraudulent behaviour.</p>
+<hr />
+<h2 id="stratified-train-test-split">Stratified Train-Test Split</h2>
+<p>The dataset was divided using an 80:20 stratified split.</p>
+<p>This preserves the original fraud-to-non-fraud ratio in both training
+and testing datasets, ensuring a representative evaluation.</p>
+<hr />
+<h2 id="consistent-preprocessing">Consistent Preprocessing</h2>
+<p>The <code>build_features()</code> pipeline is reused during both
+model training and FastAPI inference.</p>
+<p>This guarantees that incoming API requests undergo the same
+transformations as the training data, preventing training-serving
+skew.</p>
+<hr />
+<h1 id="challenges-3">8. Challenges</h1>
+<p>Key challenges during feature engineering included:</p>
+<ul>
+<li>Selecting features that generalize to unseen transactions.</li>
+<li>Avoiding information leakage.</li>
+<li>Handling severe class imbalance.</li>
+<li>Designing reusable preprocessing for production inference.</li>
+</ul>
+<hr />
+<h1 id="lessons-learned-3">9. Lessons Learned</h1>
+<p>Feature engineering significantly influenced model performance.</p>
+<p>Behavioural features proved more valuable than raw identifiers,
+reinforcing the importance of domain knowledge when designing fraud
+detection systems.</p>
+<hr />
+<h1 id="future-improvements-3">10. Future Improvements</h1>
+<p>Future feature engineering enhancements may include:</p>
+<ul>
+<li>Customer transaction frequency</li>
+<li>Transaction velocity</li>
+<li>Historical fraud rate</li>
+<li>Time-based behavioural features</li>
+<li>Network-based account features</li>
+</ul>
+<hr />
+<h1 id="interview-questions-3">11. Interview Questions</h1>
+<ol type="1">
+<li>Why were identifier columns removed?</li>
+<li>Why was scaling unnecessary?</li>
+<li>Explain the purpose of <code>amount_balance_ratio</code>.</li>
+<li>Why create <code>full_balance_transfer</code>?</li>
+<li>How do you ensure preprocessing consistency between training and
+inference?</li>
+</ol>
+<hr />
+<h1 id="references-2">References</h1>
+<ol type="1">
+<li>Fraud Detection Dataset – Kaggle</li>
+<li>CatBoost Documentation</li>
+</ol>
+</body>
+</html>
