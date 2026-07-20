@@ -96,6 +96,12 @@ Tree-based algorithms were selected because they:
 - Perform well on structured financial transaction data.
 
 ---
+**Figure 4.1 – Machine Learning Pipeline**
+
+![Machine Learning Pipeline](../assets/images/2_ML.png)
+
+*Figure 4.1. End-to-end machine learning workflow used by the Adaptive Fraud Intelligence Platform.*
+
 
 # 6. Experimental Evolution
 
