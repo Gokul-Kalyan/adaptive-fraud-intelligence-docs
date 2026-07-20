@@ -41,34 +41,11 @@ These features make FastAPI suitable for deploying real-time prediction services
 
 # 3. Backend Architecture
 
-The FastAPI service acts as the communication layer between external clients and the fraud detection model.
+**Figure 5.1 – FastAPI Inference Workflow**
 
-```
-                Client
-                   │
-                   ▼
-             FastAPI Service
-                   │
-        ┌──────────┴──────────┐
-        ▼                     ▼
-Input Validation        Load Model
-        │                     │
-        └──────────┬──────────┘
-                   ▼
-          Feature Preparation
-                   │
-                   ▼
-           CatBoost Prediction
-                   │
-                   ▼
-            Decision Engine
-                   │
-        ┌──────────┴──────────┐
-        ▼                     ▼
- PostgreSQL Logger      JSON Response
-```
+![FastAPI Inference Workflow](../assets/images/3_API.png)
 
-The API separates validation, prediction, business logic, and persistence into independent components.
+*Figure 5.1. End-to-end request processing workflow implemented by the FastAPI inference service.*
 
 ---
 

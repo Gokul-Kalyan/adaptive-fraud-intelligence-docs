@@ -40,40 +40,14 @@ MLflow was introduced to solve these challenges by maintaining a complete histor
 
 # 3. MLflow Architecture
 
-The Adaptive Fraud Intelligence Platform integrates MLflow within the offline training pipeline.
 
-```
-Fraud Dataset
-      │
-      ▼
-Feature Engineering
-      │
-      ▼
-CatBoost Training
-      │
-      ▼
-Model Evaluation
-      │
-      ▼
-MLflow Experiment Tracking
-      │
-      ├── Parameters
-      ├── Metrics
-      └── Model Artifact
-      │
-      ▼
-MLflow Model Registry
-      │
-      ▼
-Model Versioning
-      │
-      ▼
-Deployment Packaging (Joblib)
-```
+MLflow provides a structured workflow for managing machine learning experiments, tracking model performance, and promoting selected models to the Model Registry for deployment.
 
-MLflow serves as the experiment management layer of the platform, while the exported Joblib model is used by the production inference service.
+![MLflow Lifecycle](../assets/images/7_MLflow_lifecycle.png)
 
----
+*Figure 4.2. MLflow experiment lifecycle.*
+
+The lifecycle demonstrates how experiments progress from model training and metric logging to model registration and deployment readiness, ensuring reproducibility and governance throughout the machine learning workflow.
 
 # 4. MLflow Configuration
 
@@ -89,42 +63,7 @@ Each execution of the training pipeline automatically creates a new experiment r
 Every run maintains an independent record of the training process.
 
 ---
-
-# 5. Experiment Lifecycle
-
-The implemented experiment lifecycle is shown below.
-
-```
-Train CatBoost Model
-        │
-        ▼
-Evaluate Model
-        │
-        ▼
-Start MLflow Run
-        │
-        ├── Log Parameters
-        ├── Log Metrics
-        └── Log Model Artifact
-        │
-        ▼
-Experiment Stored
-        │
-        ▼
-Manual Model Registration
-        │
-        ▼
-Model Version Created
-        │
-        ▼
-Export Model using Joblib
-```
-
-Each experiment remains independently accessible, allowing comparison with previous runs.
-
----
-
-# 6. Parameter Logging
+# 5. Parameter Logging
 
 MLflow records the important hyperparameters used during model training.
 
@@ -142,7 +81,7 @@ This improves reproducibility and simplifies future experimentation.
 
 ---
 
-# 7. Metric Logging
+# 6. Metric Logging
 
 After model evaluation, the following performance metrics are logged to MLflow.
 
@@ -156,7 +95,7 @@ Unlike accuracy, these metrics better represent model performance on highly imba
 
 ---
 
-# 8. Model Artifact Logging
+# 7. Model Artifact Logging
 
 In addition to numerical evaluation metrics, the trained CatBoost model is stored as an MLflow artifact.
 
@@ -177,7 +116,7 @@ This guarantees complete experiment reproducibility.
 
 ---
 
-# 9. MLflow Model Registry
+# 8. MLflow Model Registry
 
 Experiment tracking and model management serve different purposes.
 
@@ -201,7 +140,7 @@ This approach allowed the project to demonstrate the complete model governance w
 
 ---
 
-# 10. Model Versioning
+# 9. Model Versioning
 
 The Model Registry maintains versioned instances of the registered model.
 
@@ -230,7 +169,7 @@ Although this project manually manages model registration, the versioning workfl
 
 ---
 
-# 11. Deployment Packaging
+# 10. Deployment Packaging
 
 The deployed FastAPI service loads a serialized Joblib model.
 
@@ -254,7 +193,7 @@ Separating experiment management from runtime inference keeps the prediction ser
 
 ---
 
-# 12. Engineering Decisions
+# 11. Engineering Decisions
 
 Several engineering decisions influenced the experiment tracking workflow.
 
@@ -284,7 +223,7 @@ This simplifies deployment and improves operational reliability.
 
 ---
 
-# 13. Challenges
+# 12. Challenges
 
 The primary challenges encountered during implementation included:
 
@@ -297,7 +236,7 @@ Despite these challenges, MLflow was successfully incorporated into the end-to-e
 
 ---
 
-# 14. Lessons Learned
+# 13. Lessons Learned
 
 The integration of MLflow reinforced several important MLOps practices.
 
@@ -309,7 +248,7 @@ The integration of MLflow reinforced several important MLOps practices.
 
 ---
 
-# 15. Future Improvements
+# 14 Future Improvements
 
 Future versions of the platform may include:
 
@@ -321,7 +260,7 @@ Future versions of the platform may include:
 
 ---
 
-# 16. Interview Questions
+# 15. Interview Questions
 
 1. Why is experiment tracking important in machine learning?
 2. Why did you choose MLflow?

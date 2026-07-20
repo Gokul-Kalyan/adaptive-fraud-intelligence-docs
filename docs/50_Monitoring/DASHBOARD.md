@@ -40,29 +40,13 @@ The monitoring dashboard addresses these requirements by presenting operational 
 
 # 3. Dashboard Architecture
 
-The dashboard is positioned after the prediction service and database.
+The monitoring framework continuously evaluates both incoming transaction data and model performance to detect changes that could reduce prediction quality. This enables timely intervention through alerts and model retraining when necessary.
 
-```
-              Client
-                 │
-                 ▼
-             FastAPI API
-                 │
-                 ▼
-          CatBoost Prediction
-                 │
-                 ▼
-            PostgreSQL
-                 │
-        ┌────────┴─────────┐
-        ▼                  ▼
-Dashboard Metrics    Recent Predictions
-```
+![Monitoring and Drift Detection Workflow](../assets/images/5_Monitoring_Drift.png)
 
-The dashboard performs only read operations and does not modify production data.
+*Figure 7.1. Monitoring and drift detection workflow.*
 
----
-
+The monitoring pipeline tracks data quality, feature distributions, prediction behavior, and performance metrics to identify data drift, concept drift, and model degradation.
 # 4. Technology Stack
 
 The monitoring dashboard was implemented using **Streamlit**.

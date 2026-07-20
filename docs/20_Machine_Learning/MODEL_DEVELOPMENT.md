@@ -96,7 +96,7 @@ Tree-based algorithms were selected because they:
 - Perform well on structured financial transaction data.
 
 ---
-**Figure 4.1 – Machine Learning Pipeline**
+
 
 ![Machine Learning Pipeline](../assets/images/2_ML.png)
 

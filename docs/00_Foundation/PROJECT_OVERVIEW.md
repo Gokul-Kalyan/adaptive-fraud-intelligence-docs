@@ -44,6 +44,14 @@ This separation between prediction and decision logic improves maintainability a
 
 The platform consists of six major subsystems.
 
+The deployment strategy extends beyond containerization by incorporating an end-to-end MLOps workflow. This workflow connects data preparation, model development, deployment, monitoring, and continuous improvement into a unified lifecycle.
+
+![End-to-End MLOps Workflow](../assets/images/6_MLOps.png)
+
+*Figure 6.2. End-to-end MLOps workflow.*
+
+The workflow demonstrates how data, model training, deployment, monitoring, and feedback interact to support continuous model improvement and reliable production operations.
+
 ## 4.1 Data Engineering Layer
 
 Responsible for preparing raw transaction data for model training.

@@ -43,25 +43,13 @@ Instead of configuring every machine manually, the application can be deployed u
 
 # 3. Deployment Architecture
 
-The platform uses a multi-container architecture managed by Docker Compose.
+The deployment architecture is implemented using Docker Compose to orchestrate the application's services in a reproducible and isolated environment.
 
-```
-                    Docker Compose
-                           │
-          ┌────────────────┴────────────────┐
-          ▼                                 ▼
-   fraud-api Container             fraud-postgres Container
-          │                                 │
-          ▼                                 ▼
-     FastAPI Service                  PostgreSQL 16
-          │
-          ▼
-   CatBoost Prediction Model
-```
+![Docker Deployment Architecture](../assets/images/4_Docker_Deployment.png)
 
-Each service executes within its own isolated container while communicating through Docker's internal network.
+*Figure 6.1. Docker deployment architecture.*
 
----
+The platform consists of multiple containers that communicate over a shared Docker network, enabling seamless interaction between the FastAPI application, PostgreSQL database, and other supporting services.
 
 # 4. Docker Components
 
