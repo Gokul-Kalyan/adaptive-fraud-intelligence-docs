@@ -1,1 +1,72 @@
-site_name: My Docs
+site_name: Adaptive Fraud Intelligence Platform
+site_description: End-to-End Fraud Detection System Documentation
+site_author: Gokul Kalyan
+
+theme:
+  name: material
+  language: en
+
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.indexes
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - toc.follow
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+
+nav:
+  - Home: index.md
+
+  - Foundation:
+      - Documentation Guide: 00_Foundation/DOCUMENTATION_GUIDE.md
+      - Project Charter: 00_Foundation/PROJECT_CHARTER.md
+      - Project Overview: 00_Foundation/PROJECT_OVERVIEW.md
+      - Project Scope: 00_Foundation/PROJECT_SCOPE.md
+
+  - Data:
+      - Dataset: 10_Data/DATASET.md
+      - Exploratory Data Analysis: 10_Data/EDA.md
+      - Feature Engineering: 10_Data/FEATURE_ENGINEERING.md
+
+  - Machine Learning:
+      - Model Development: 20_Machine_Learning/MODEL_DEVELOPMENT.md
+      - Experiment Tracking: 20_Machine_Learning/EXPERIMENT_TRACKING.md
+
+  - Backend:
+      - FastAPI: 30_Backend/FASTAPI.md
+      - PostgreSQL: 30_Backend/POSTGRESQL.md
+
+  - Deployment:
+      - Docker: 40_Deployment/DOCKER.md
+      - Cloud Deployment: 40_Deployment/CLOUD_DEPLOYMENT.md
+
+  - Monitoring:
+      - Dashboard: 50_Monitoring/DASHBOARD.md
+      - Drift Detection: 50_Monitoring/DRIFT_DETECTION.md
+
+  - Project Management:
+      - Design Decisions: 60_Project_Management/DESIGN_DECISIONS.md
+      - Challenges: 60_Project_Management/CHALLENGES.md
+      - Lessons Learned: 60_Project_Management/LESSONS_LEARNED.md
+
+  - Future:
+      - Roadmap: 70_Future/ROADMAP.md
+      - Agentic AI: 70_Future/AGENTIC_AI.md
