@@ -34,6 +34,12 @@ The dataset contains approximately **6.36 million financial transaction records*
 
 Each record represents a single financial transaction containing information such as transaction type, transaction amount, sender balance, receiver balance, and fraud status.
 
+## 3.1 Dataset Overview
+
+![Distribution of Numerical Features](../assets/images/eda/05_Distribution_of_Numerical_Features.png)
+
+*Figure 3.1. Distribution of the numerical features before preprocessing.*
+
 ### Engineering Observation
 
 - The dataset size is sufficiently large for training robust machine learning models.
@@ -57,6 +63,11 @@ The overall data quality was considered high, allowing preprocessing to focus pr
 ---
 
 ## 3.3 Class Distribution
+
+
+![Fraud vs Non-Fraud Transactions](../assets/images/eda/02_Fraud_vs_Non-Fraud_Transactions.png)
+
+*Figure 3.2. Distribution of fraudulent and legitimate transactions.*
 
 The distribution of the target variable (`isFraud`) was analyzed to understand the balance between fraudulent and legitimate transactions.
 
@@ -85,6 +96,18 @@ This approach preserves the original transaction distribution while increasing t
 
 ## 3.4 Transaction Type Analysis
 
+| Index | Transaction Type | Encoded Value | Total Counts |
+|------:|------------------|--------------:|-------------:|
+| 0 | CASH_IN | 0 | 1,399,284 |
+| 1 | CASH_OUT | 1 | 2,237,500 |
+| 2 | DEBIT | 2 | 41,432 |
+| 3 | PAYMENT | 3 | 2,151,495 |
+| 4 | TRANSFER | 4 | 532,909 |
+
+![Transaction Type Distribution](../assets/images/eda/03_Transaction_Type_Distribution.png)
+
+*Figure 3.3. Distribution of transaction categories.*
+
 The distribution of transaction categories was analyzed.
 
 The dataset contains the following transaction types:
@@ -111,6 +134,18 @@ Transaction type was retained as a predictive feature and encoded numerically be
 
 Fraud occurrences were analyzed across transaction categories.
 
+| Encoded Value | Transaction Type | Non-Fraud (0) | Fraud (1) |
+|--------------:|------------------|--------------:|----------:|
+| 0 | CASH_IN | 1,399,284 | 0 |
+| 1 | CASH_OUT | 2,233,384 | 4,116 |
+| 2 | DEBIT | 41,432 | 0 |
+| 3 | PAYMENT | 2,151,495 | 0 |
+| 4 | TRANSFER | 528,812 | 4,097 |
+
+![Fraud Distribution by Transaction Type](../assets/images/eda/04_Fraud_Distribution_by_Transaction_Type.png)
+
+*Figure 3.4. Fraud occurrence across different transaction types.*
+
 ### Observations
 
 Fraudulent transactions are concentrated within specific transaction types rather than being evenly distributed across all categories.
@@ -126,6 +161,10 @@ The transaction type feature was retained because it provides important contextu
 ## 3.6 Numerical Feature Distribution
 
 The distributions of numerical variables were analyzed.
+
+![Continuous Feature Distributions](../assets/images/eda/05_Distribution_of_Numerical_Features.png)
+
+*Figure 3.5. Distribution of continuous numerical features.*
 
 Features analyzed include:
 
@@ -152,6 +191,10 @@ Tree-based ensemble methods were preferred because they naturally handle skewed 
 ## 3.7 Transaction Amount Analysis
 
 The transaction amount feature was analyzed using both its original scale and a logarithmic transformation.
+
+![Log Distribution of Transaction Amount](../assets/images/eda/06_Log_Distribution_of_Transaction_Amount.png)
+
+*Figure 3.6. Log-transformed distribution of transaction amounts.*
 
 ### Observations
 
@@ -184,6 +227,10 @@ All balance-related variables were retained because they capture valuable financ
 ## 3.9 Correlation Analysis
 
 Correlation analysis was performed on numerical variables.
+
+![Correlation Matrix](../assets/images/eda/09_Correlation_Matrix.png)
+
+*Figure 3.9. Pearson correlation matrix of the numerical features.*
 
 ### Observations
 
