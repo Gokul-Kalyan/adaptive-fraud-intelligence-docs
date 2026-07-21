@@ -1,3 +1,9 @@
+<p align="center">
+  <img src="assets/logo/AF_logo.png"
+       alt="Adaptive Fraud Intelligence Platform Logo"
+       width="190">
+</p>
+
 # Adaptive Fraud Intelligence Platform
 
 > **Version 1.0** • Production-Inspired Machine Learning System
