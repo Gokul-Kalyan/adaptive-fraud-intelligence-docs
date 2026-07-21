@@ -64,9 +64,12 @@ CatBoost achieved the best balance between predictive performance and deployment
 
 # 6. Machine Learning Pipeline
 
-![Figure 4.1](../assets/images/model_development/ml_pipeline.png)
 
-**Figure 4.1:** End-to-end machine learning workflow.
+![Machine Learning Pipeline](../assets/images/2_ML.png)
+
+
+*Figure 4.1. End-to-end machine learning workflow used by the Adaptive Fraud Intelligence Platform.*
+
 
 Pipeline:
 
