@@ -53,6 +53,13 @@ The lifecycle demonstrates how experiments progress from model training and metr
 
 The training pipeline connects to a local MLflow Tracking Server.
 
+![MLflow Home](../assets/images/screenshots/mlflow_home_runs.jpg)
+
+**Figure 2.1:** MLflow experiment tracking dashboard displaying recorded training runs and their associated metadata.
+
+
+
+
 ```python
 mlflow.set_tracking_uri("http://127.0.0.1:5000")
 mlflow.set_experiment("FraudDetection")
@@ -66,6 +73,10 @@ Every run maintains an independent record of the training process.
 # 5. Parameter Logging
 
 MLflow records the important hyperparameters used during model training.
+
+![MLflow Experiment Overview](../assets/images/screenshots/mlflow_overview.jpg)
+
+**Figure 2.2:** Detailed MLflow experiment view showing logged parameters, evaluation metrics, and generated artifacts.
 
 The logged parameters include:
 
@@ -119,6 +130,11 @@ This guarantees complete experiment reproducibility.
 # 8. MLflow Model Registry
 
 Experiment tracking and model management serve different purposes.
+
+![MLflow Model Registry](../assets/images/screenshots/model_registry.jpg)
+
+**Figure 2.3:** MLflow Model Registry containing the registered production model and version management interface.
+
 
 While experiment tracking records the history of model development, the **Model Registry** manages approved model versions.
 
